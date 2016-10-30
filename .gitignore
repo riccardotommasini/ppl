@@ -1,3 +1,13 @@
+# common backups, autosaves, lock files, OS meta-files
+*~
+\#*
+.#*
+.DS_Store
+*.bak
+TAGS
+
+#SCHEME
+
 *.ss~
 *.ss#*
 .#*.ss
@@ -5,3 +15,4 @@
 *.scm~
 *.scm#*
 .#*.scm
+*.rkt~
