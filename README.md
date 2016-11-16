@@ -18,11 +18,7 @@ This repository contains the material related to the practical classes of the co
 - Macro: why, examples: for, 
 - Continuations: first steps
 
-## 11/11/2016 Scheme 4
-- Macro: why, examples: for, 
-- Continuations: first steps
-
-## 11/11/2016 Scheme 4
+## 15/11/2016 Scheme 4
 - Continuations: clarifiction, coroutines, choose
 - Higher order functions: exercise on foldl, foldr
 - Macro: repeat-until
