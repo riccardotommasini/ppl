@@ -25,7 +25,7 @@ This repository contains the material related to the practical classes of the co
 
 ## 02/12/2016 Haskell 1
 - basics: function, lists, pattern matching, currying, guards 
-- Higher order functions (foldl), list comprehension, 
+- Higher order functions (foldl), list comprehension 
 - Types: Binary Tree | TraffiLight
 
 ## 20/12/2016 Haskell 1
