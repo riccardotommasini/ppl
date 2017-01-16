@@ -32,7 +32,7 @@ This repository contains the material related to the practical classes of the co
 - basics: aias, accessor, type sum and products
 - Towards Monads: Foldable, Functor, Applicative (Logger example)
 
-# 13/01/2016 Haskell 3
+## 13/01/2016 Haskell 3
 - Repetita Iuvant: Functor, Applicative
 - Logger as a Monad
 - Monadic Laws, do notation
