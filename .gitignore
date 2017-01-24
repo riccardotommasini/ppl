@@ -16,3 +16,9 @@ TAGS
 *.scm#*
 .#*.scm
 *.rkt~
+
+#ERLANG
+
+*.beam
+
+*/Actual/*
