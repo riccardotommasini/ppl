@@ -28,10 +28,15 @@ This repository contains the material related to the practical classes of the co
 - Higher order functions (foldl), list comprehension 
 - Types: Binary Tree | TraffiLight
 
-## 20/12/2016 Haskell 1
-- basics: function, lists, pattern matching, currying, guards 
-- Higher order functions (foldl), list comprehension, 
-- Types: Binary Tree | TraffiLight
+## 21/12/2016 Haskell 2
+- basics: aias, accessor, type sum and products
+- Towards Monads: Foldable, Functor, Applicative (Logger example)
+
+## 13/01/2016 Haskell 3
+- Repetita Iuvant: Functor, Applicative
+- Logger as a Monad
+- Monadic Laws, do notation
+
 
 ### Proposed Homeworks
 	- Alternative tree representation
@@ -40,4 +45,4 @@ This repository contains the material related to the practical classes of the co
 	- Think lambda as macros
 	- coroutines as macros?
 	- choose with arrays trying a random order fro selecting next paths
-	
+	- Monadic Heap
