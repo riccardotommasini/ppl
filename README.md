@@ -37,12 +37,26 @@ This repository contains the material related to the practical classes of the co
 - Logger as a Monad
 - Monadic Laws, do notation
 
+## 20/01/2016 Haskell 4
+- Logger Monad (tree ex)
+- State Monad 
+
+## 24/01/2016 Erlang 1
+- Types: Lists, Tuples, atoms, primitives
+- List comprehension, pattern matching, 
+- conditionals: guards, if 
+- higher order functions
+
+
+
 
 ### Proposed Homeworks
-	- Alternative tree representation
-	- Heap priority queue structure
-	- Dijkstra's Algorithm
-	- Think lambda as macros
-	- coroutines as macros?
-	- choose with arrays trying a random order fro selecting next paths
-	- Monadic Heap
+	- [Scheme] Alternative tree representation
+	- [Scheme] Heap priority queue structure
+	- [Scheme] Dijkstra's Algorithm
+	- [Scheme] Think lambda as macros
+	- [Scheme] coroutines as macros?
+	- [Scheme] choose with arrays trying a random order fro selecting next paths
+	- [Haskell] Monadic Heap
+	- [Erlang] Filter, Map with folds
+	- [Erlang] Tree in Erlang
