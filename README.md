@@ -70,15 +70,15 @@ This repository contains the material related to the practical classes of the co
 	
 ### Interesting Links
 
-[Learning Racket (by an Haskell programmer)](https://artyom.me/learning-racket-1)
-[I Learn You Some Erlang](http://learnyousomeerlang.com)
-[I Learn You Haskell](http://learnyouahaskell.com)
-[Higer Order Functions](http://matt.might.net/articles/higher-order-list-operations/)
+- [Learning Racket (by an Haskell programmer)](https://artyom.me/learning-racket-1)
+- [I Learn You Some Erlang](http://learnyousomeerlang.com)
+- [I Learn You Haskell](http://learnyouahaskell.com)
+- [Higer Order Functions](http://matt.might.net/articles/higher-order-list-operations/)
 
 ### Research Digressions
 
-(Purely Functional Data Structures)[https://www.cs.cmu.edu/~rwh/theses/okasaki.pdf]
-(A History of Erlang)[http://webcem01.cem.itesm.mx:8005/erlang/cd/downloads/hopl_erlang.pdf]
+- [Purely Functional Data Structures](https://www.cs.cmu.edu/~rwh/theses/okasaki.pdf)
+- [A History of Erlang](http://webcem01.cem.itesm.mx:8005/erlang/cd/downloads/hopl_erlang.pdf)
 
 
 #Thanks for all the fish!
