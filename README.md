@@ -79,8 +79,8 @@ This repository contains the material related to the practical classes of the co
 
 - [Purely Functional Data Structures](https://www.cs.cmu.edu/~rwh/theses/okasaki.pdf)
 - [A History of Erlang](http://webcem01.cem.itesm.mx:8005/erlang/cd/downloads/hopl_erlang.pdf)
+- [Actor Model of Computation: Scalable Robust Information Systems](https://arxiv.org/pdf/1008.1459v38.pdf)
 
-
-#Thanks for all the fish!
+# Thanks for all the fish!
 
 
