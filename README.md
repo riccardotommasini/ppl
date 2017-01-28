@@ -41,12 +41,17 @@ This repository contains the material related to the practical classes of the co
 - Logger Monad (tree ex)
 - State Monad 
 
-## 24/01/2016 Erlang 1
+## 24/01/2017 Erlang 1
 - Types: Lists, Tuples, atoms, primitives
 - List comprehension, pattern matching, 
 - conditionals: guards, if 
-- higher order functions
+- higher order functions 1
 
+## 27/01/2017 Erlang 2
+- Higer order functions 2: foldL,foldR, filter
+- conditionals: case of
+- Actors and Concurrency: spawn, messages, links
+- Publish Subscribe Example
 
 
 
@@ -60,3 +65,22 @@ This repository contains the material related to the practical classes of the co
 	- [Haskell] Monadic Heap
 	- [Erlang] Filter, Map with folds
 	- [Erlang] Tree in Erlang
+	- [Erlang] Improve publish subscribe as indicated in the pubsub-3.erl file
+	- [Erlang] Distributed Dijkstra's Algorithm.
+	
+### Interesting Links
+
+- [Learning Racket (by an Haskell programmer)](https://artyom.me/learning-racket-1)
+- [I Learn You Some Erlang](http://learnyousomeerlang.com)
+- [I Learn You Haskell](http://learnyouahaskell.com)
+- [Higer Order Functions](http://matt.might.net/articles/higher-order-list-operations/)
+
+### Research Digressions
+
+- [Purely Functional Data Structures](https://www.cs.cmu.edu/~rwh/theses/okasaki.pdf)
+- [A History of Erlang](http://webcem01.cem.itesm.mx:8005/erlang/cd/downloads/hopl_erlang.pdf)
+
+
+#Thanks for all the fish!
+
+
