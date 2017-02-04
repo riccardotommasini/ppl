@@ -1,6 +1,9 @@
 # Principle of Programming Languages
 
-This repository contains the material related to the practical classes of the course Principles of Programming Languages 
+This repository contains the material related to the practical classes of the course Principles of Programming Languages
+
+##
+Brand new Slack channels is available at [here](ppl-course.slack.com) to discuss about course issues and PPL related topis
 
 ## 28/10/2016 Scheme 1
 - Code Style Guide
