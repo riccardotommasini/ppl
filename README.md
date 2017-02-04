@@ -3,7 +3,7 @@
 This repository contains the material related to the practical classes of the course Principles of Programming Languages
 
 ##
-Brand new Slack channels is available at [here](ppl-course.slack.com) to discuss about course issues and PPL related topis
+Brand new Slack channels is available at [here](ppl-course.slack.com) to discuss about course issues and PPL related topis. Use @polimi.it or @mail.polimi.it email to access it.
 
 ## 28/10/2016 Scheme 1
 - Code Style Guide
