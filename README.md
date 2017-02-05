@@ -80,6 +80,7 @@ Brand new Slack channels is available at [here](ppl-course.slack.com) to discuss
 
 ### Research Digressions
 
+- [History of Haskell](http://research.microsoft.com/en-us/um/people/simonpj/papers/history-of-haskell/history.pdf)
 - [Purely Functional Data Structures](https://www.cs.cmu.edu/~rwh/theses/okasaki.pdf)
 - [A History of Erlang](http://webcem01.cem.itesm.mx:8005/erlang/cd/downloads/hopl_erlang.pdf)
 - [Actor Model of Computation: Scalable Robust Information Systems](https://arxiv.org/pdf/1008.1459v38.pdf)
