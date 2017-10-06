@@ -4,7 +4,6 @@ import Control.Monad.State
 
 -- newtype State s a = State { runState :: s -> (a,s)}
 
-
 -- instance Monad State where
 --  return x = State $ \s -> (x,s)
 --  m >>= f = State $ \s -> let 
@@ -19,7 +18,6 @@ import Control.Monad.State
 --  (State h) >>= f = State $ \s -> let (a, newState) = h s  
 --                                     (State g ) = f a  -- ta -> State ts ta
 --                                 in  g newState
-
 
 type Stack = [Int]
 
