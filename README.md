@@ -2,14 +2,14 @@
 
 This repository contains the material related to the practical classes of the course Principles of Programming Languages
 
-# Note 1: Projects will be available soon on this page AND on the [course's one](home.deib.polimi.it/pradella/PL.html)
+# Note 1: Projects will be available soon on this page AND on the [course's one](https://home.deib.polimi.it/pradella/PL.html)
 
 # Note 2: If you have proposals, they are welcome.
 
 
 ##
 
-Slack channels is available [here](ppl-course.slack.com) to discuss about course issues and PPL related topis. Use @polimi.it or @mail.polimi.it email to access it.
+Slack channels is available [here](https://ppl-course.slack.com) to discuss about course issues and PPL related topis. Use @polimi.it or @mail.polimi.it email to access it.
 
 
 ## Old Courses Material (Git Tags)
