@@ -2,11 +2,6 @@
 
 This repository contains the material related to the practical classes of the course Principles of Programming Languages
 
-# Note 1: Projects will be available soon on this page AND on the [course's one](https://home.deib.polimi.it/pradella/PL.html)
-
-# Note 2: If you have proposals, they are welcome.
-
-
 ##
 
 Slack channels is available [here](https://ppl-course.slack.com) to discuss about course issues and PPL related topis. Use @polimi.it or @mail.polimi.it email to access it.
@@ -22,5 +17,16 @@ Slack channels is available [here](https://ppl-course.slack.com) to discuss abou
 - Basic Lists: handy functions, immutability, quick-sort
 
 
+## 13/10/2017 Scheme 2
+- Macros
+- Continuations
+
+
+## 31/10/2017 Scheme 3
+- Macros 2: focus on recursion and ellipsis
+- Continuations 2: co-routines
+- Homeworks:
+    - expandable condition in repeat until
+    - errors in macros
 
 
