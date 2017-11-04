@@ -29,4 +29,9 @@ Slack channels is available [here](https://ppl-course.slack.com) to discuss abou
     - expandable condition in repeat until
     - errors in macros
 
+## 03/11/2017 Haskell 1
+- lists manipulation and list comprehension
+- type SUM and PRODUCT
+- exercises on higher order functions
+
 
