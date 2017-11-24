@@ -35,7 +35,7 @@ Slack channels is available [here](https://ppl-course.slack.com) to discuss abou
 - exercises on higher order functions
  
 ## 17/11/2017 Haskell 2
-- Exam of 05/07/2017
+- Exams of 05/07/2017 and 20/07/2017
     -- more on types: Trees
     -- map over trees
 
