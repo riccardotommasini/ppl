@@ -39,4 +39,13 @@ Slack channels is available [here](https://ppl-course.slack.com) to discuss abou
     -- more on types: Trees
     -- map over trees
 
+## 17/11/2017 Haskell 2
+- State
+    + as Functor
+    + as Applicative Functor
+    + as Monad
+    + included example from \[[1](http://cmsc-16100.cs.uchicago.edu/2016/Lectures/18-state-monad-1.php)\]\[[2](http://cmsc-16100.cs.uchicago.edu/2016/Lectures/19-state-monad-2.php)\]
+
+[ ] TODO exercise on HTML
+
 
