@@ -68,23 +68,39 @@ instance Monad (State s) where
             (b', s'') = b s'
         in (b', s'')
 
--- Monadic Functions to manipulate the state
 
-get :: State s s
-get = State $ \s -> (s, s)
+-- Note the instance is State s, 
+-- and not just State: on its own, 
+-- State can't be made an instance of Monad, 
+-- as it takes two type parameters, rather than one. 
+-- That means there are actually many different State monads, 
+-- one for each possible type of state - 
+-- State String, State Int, State SomeLargeDataStructure, and so forth. 
+-- However, we only need to write one implementation of return and (>>=); 
+-- the methods will be able to deal with all choices of s.
 
-put :: s -> State s ()
-put t = State $ \s -> ((), t)
 
-edit :: (s -> s) -> State s ()
-edit f = State $ \s -> ((), f s)
+-- -- Monadic Functions to manipulate the state
 
--- functions to access the internal state
-evalState :: State s a -> s -> a
-evalState ma s = fst (runState ma s)
+-- get :: State s s
+-- get = State $ \s -> (s, s)
 
-execState :: State s a -> s -> s
-execState ma s = snd (runState ma s)
+-- put :: s -> State s ()
+-- put t = State $ \s -> ((), t)
+
+-- edit :: (s -> s) -> State s ()
+-- edit f = State $ \s -> ((), f s)
+
+-- -- functions to access the internal state
+-- evalState :: State s a -> s -> a
+-- evalState ma s = fst (runState ma s)
+
+-- execState :: State s a -> s -> s
+-- execState ma s = snd (runState ma s)
+
+
+
+
 
 -- TE 2013/07/05
 
@@ -120,9 +136,61 @@ numberList l = mapListM helper l where
                   return (x, st+x)
 
 
+-- Trees
+
+data Tree a = Leaf a | Branch ( Tree a ) ( Tree a )
+
+instance Show a => Show (Tree a) where
+    show (Leaf a) = show a
+    show (Branch x y) = "<" ++ show x ++ " | " ++ show y ++ ">"
+
+-- mapTreeM :: Monad m => (t -> m a) -> Tree t -> m (Tree a)
+mapTreeM f (Leaf a) = do
+    b <- f a
+    return (Leaf b)
+
+mapTreeM f (Branch lhs rhs) = do
+    lhs' <- mapTreeM f lhs
+    rhs' <- mapTreeM f rhs
+    return (Branch lhs' rhs')
+
+getState :: State state state
+getState = State (\state -> (state, state))
+
+putState :: state -> State state ()
+putState new = State (\_ -> ((), new))
+
+runStateM :: State state a -> state -> a
+runStateM (State f) st = fst (f st)
+
+numberTreeM :: Tree a -> State Int (Tree (a, Int))
+numberTreeM tree = mapTreeM number tree
+    where number v = do 
+            c <- getState -- gets current state
+            putState (c+1) -- adds 1 to current state
+            return (v,c)         --encapsulate
+
+-- ALTERNATIVE getState >>= (\c -> putState (c+1) >>= (\ -> return  (v, c)))
+
+numberTree :: Tree a -> Tree (a, Int)
+numberTree t = snd (numberTree' 0 t) where
+    numberTree' st (Leaf a) = (st+1, Leaf (a, st+1))
+    numberTree' st t@(Branch l r) = 
+        let (st', l') = (numberTree' st l) 
+            (st'', r') = (numberTree' st' r )
+        in (st', Branch l' r')
+
+--numberTree' :: Int -> Tree a -> (Int, Tree (a, Int))
+
+-- e.g. let t = Branch (Branch (Leaf 'a') (Branch (Leaf 'b') (Leaf 'c'))) (Branch (Leaf 'd') (Leaf 'e'))
+-- runStateM (numberTreeM t) 1
+-- numberTree t
+
+
 -- HTML
 
 type HTML = State String
+-- create a synonym that fixes the state type to String (leaving the value open though)
 
 string :: String -> HTML ()
 string t = edit (++t)
@@ -132,6 +200,24 @@ render mHTML = execState mHTML ""
 
 -- define HTML core
 
+-- Monadic Functions to manipulate the state
+
+get :: State s s
+get = State $ \s -> (s, s)
+
+put :: s -> State s ()
+put t = State $ \s -> ((), t)
+
+edit :: (s -> s) -> State s ()
+edit f = State $ \s -> ((), f s)
+
+-- functions to access the internal state
+evalState :: State s a -> s -> a
+evalState ma s = fst (runState ma s)
+
+execState :: State s a -> s -> s
+execState ma s = snd (runState ma s)
+
 tag :: String -> HTML a -> HTML ()
 tag t mHTML = do -- mHTML is a monadic argument
     string $ "<" ++ t ++ ">"
@@ -140,14 +226,14 @@ tag t mHTML = do -- mHTML is a monadic argument
 
 -- HTML a -> HTML ()
 html  = tag "html"
-headd  = tag "head"
+head'  = tag "head"
 title = tag "title"
 body  = tag "body"
 p     = tag "p"
 i     = tag "i"
 b     = tag "b"
 h1    = tag "h1"
-h2    = tag "h2"
+h2    = tag "h2««"
 h3    = tag "h3"
 h4    = tag "h4"
 ol    = tag "ol"
@@ -160,7 +246,7 @@ td    = tag "td"
 
 doc =
     html $ do
-        headd
+        head'
          $ do
             title $ string "Hello, world!"
         body $ do
