@@ -1,24 +1,33 @@
 -module(server).
--export([start/0,server/0]).
+-export([main/0,server/0]).
 
 %% This server only stays alive for one connection, but this is OK for demonstration in a modern
 %% browser, since HTTP 1.1 keeps the connection open for multiple requests.
 
-start() ->
+main() ->
     Pid = spawn(?MODULE, server, []), %%global naming for processes
     register(server, Pid).
 
 server() ->
     {ok, Listen} = gen_tcp:listen(2345, [binary, {packet, 0}, {reuseaddr, true}, {active, true}]),
     io:format("SERVER Listening on port 2345~n"),
-    {ok, Socket} = gen_tcp:accept(Listen),
+    {ok, Accept} = gen_tcp:accept(Listen), 
+    %% receives the messages from who will connected to this socket
+    %% the process is locked until someone connect
+    %%NBB is a one-2-one connection
     gen_tcp:close(Listen),
+    % Both sockets can send messages in the same way, and 
+    % can then be closed with gen_tcp:close(Socket).
+    %  Note that closing an accept socket will close that socket alone, 
+    %  and closing a listen socket will close none of the related and 
+    % established accept sockets, but will interrupt currently 
+    % running accept calls by returning {error, closed}.
     Map = #{ erlang => [], haskell => [], scheme => []}, %%maps
-    loop(Socket, Map, []).
+    loop(Accept, Map, []).
 
 loop(Socket, Subscribers, Users) ->
     receive %%crazy levels of pattern matching
-        {register, Pid, Usr} ->
+        {add, Pid, Usr} ->
             io:format("Adding User~p~n", [Usr]),
             loop(Socket, Subscribers, [Usr|Users]);
         {tcp, Socket, Bin} ->
@@ -29,7 +38,7 @@ loop(Socket, Subscribers, Users) ->
                     spawn(fun () -> list(Socket, Users) end),
                     loop(Socket, Subscribers, Users);
                 {post, "update", ["topic", TopicS, "msg", Msg]} ->
-                    io:format("POST update~n"),
+                    io:format("POST update ~p~n", [Msg]),
                     Topic = list_to_atom(TopicS), %%atoms vs string
                     #{Topic := Subs} = Subscribers, %%maps
                     [spawn(fun () -> forward(Sub, Msg, Socket) end)|| Sub <- Subs], %%list comprehension
@@ -43,7 +52,8 @@ loop(Socket, Subscribers, Users) ->
                     loop(Socket, Subscribers#{Topic := [{Host, Port}|Subs]}, Users)
             end;
         {tcp_closed, Socket} ->
-            io:format("SERVER: The client closed the connection~n")
+            io:format("SERVER: The client closed the connection~n"),
+            loop(Socket, Subscribers, Users)
     end.
 
 %%case of recursion
@@ -59,9 +69,11 @@ forward({Host,Port}, Msg, ResponseSocket) ->
         {ok, RequestSocket} = gen_tcp:connect(Host, Port, [binary, {packet, 0}]),
         ok = gen_tcp:send(RequestSocket, Msg),
         io:format("SERVER Sent request to back end~n"),
-        gen_tcp:send(ResponseSocket, plain_text_response("Received")).
+        gen_tcp:send(ResponseSocket, plain_text_response("Forwarded")),
+        gen_tcp:close(RequestSocket).
 
 respond(Host, Port, ResponseSocket) ->
+    io:format("Users ~p~n", [[Host, Port]]),
     {ok, RequestSocket} = gen_tcp:connect(Host, Port, [binary, {packet, 0}]),
     ok = gen_tcp:send(RequestSocket, "registered"),
     io:format("SERVER Sent request to back end~n"),
@@ -69,8 +81,9 @@ respond(Host, Port, ResponseSocket) ->
         {tcp, RequestSocket, Bin} ->
             Response = plain_text_response(binary_to_list(Bin)),
             io:format("SERVER Sent HTTP response: ~p~n", [Bin]),
-            server ! {register, self(), binary_to_list(Bin)}, %% intra process communication
-            gen_tcp:send(ResponseSocket, Response)
+            server ! {add, self(), binary_to_list(Bin)}, %% intra process communication
+            gen_tcp:send(ResponseSocket, Response),
+            gen_tcp:close(RequestSocket)
     end.
 
 
@@ -97,6 +110,7 @@ get_uri_params(put, Text,_) -> ((Text -- " PUT ") -- " HTTP/1.1 ") -- "/" ;
 get_uri_params(delete, Text,_) -> ((Text -- " DELETE ") -- " HTTP/1.1 ") -- "/" .
 
 parse_response(Bin) ->
+    io:format("SERVER Sent HTTP response: ~p~n", [Bin]),
     [Text|Rest] = string:tokens(binary_to_list(Bin), "\r\n"), %% First line is the GET request
     Method =response_method(Text),
     UriParams = get_uri_params(Method, Text, Rest),
