@@ -49,8 +49,39 @@ Slack channels is available [here](https://ppl-course.slack.com) to discuss abou
 ## 12/12/2017 Haskell 2
 - State Monad 2
 - Logger Monad
+- **TODO** exercise on HTML
 
+## 19/12/2017 Erlang 1
+- Public Subscribe Code Read
+- TCP PUB SUB
+    -  Types: Lists, Tuples, atoms, primitives
+    - List comprehension, pattern matching, 
+    - conditionals: guards, if 
+    
+## 22/01/2017 Erlang 2
+- PubSub Actors
+- Exams July 2017 05th and 20th
+    -  Higer order functions 2: foldL,foldR, filter
+    - Actors and Concurrency: spawn, messages, links
+- Updated TCP example with more stable and clean code (documentation will be added soon)
 
-[ ] TODO exercise on HTML
+### Homeworks
+- [Haskell] Play with the state monad. Can I realize a priority queue with it?
+- [Erlang] extend the TCP example to have rest API also in the subscriber (Hint: all the code you need is in the publisher)
 
+### Interesting Links
+
+- [Learning Racket (by an Haskell programmer)](https://artyom.me/learning-racket-1)
+- [I Learn You Some Erlang](http://learnyousomeerlang.com)
+- [I Learn You Haskell](http://learnyouahaskell.com)
+- [Higer Order Functions](http://matt.might.net/articles/higher-order-list-operations/)
+
+### Research Digressions
+
+- [History of Haskell](http://research.microsoft.com/en-us/um/people/simonpj/papers/history-of-haskell/history.pdf)
+- [Purely Functional Data Structures](https://www.cs.cmu.edu/~rwh/theses/okasaki.pdf)
+- [A History of Erlang](http://webcem01.cem.itesm.mx:8005/erlang/cd/downloads/hopl_erlang.pdf)
+- [Actor Model of Computation: Scalable Robust Information Systems](https://arxiv.org/pdf/1008.1459v38.pdf)
+
+# Thanks for all the fish!
 
