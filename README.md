@@ -39,14 +39,14 @@ Slack channels is available [here](https://ppl-course.slack.com) to discuss abou
     -- more on types: Trees
     -- map over trees
 
-## 05/12/2017 Haskell 2
+## 05/12/2017 Haskell 3
 - State
     + as Functor
     + as Applicative Functor
     + as Monad
     + included example from \[[1](http://cmsc-16100.cs.uchicago.edu/2016/Lectures/18-state-monad-1.php)\]\[[2](http://cmsc-16100.cs.uchicago.edu/2016/Lectures/19-state-monad-2.php)\]
 
-## 12/12/2017 Haskell 2
+## 12/12/2017 Haskell 4
 - State Monad 2
 - Logger Monad
 - **TODO** exercise on HTML
@@ -58,7 +58,7 @@ Slack channels is available [here](https://ppl-course.slack.com) to discuss abou
     - List comprehension, pattern matching, 
     - conditionals: guards, if 
     
-## 22/01/2017 Erlang 2
+## 22/12/2017 Erlang 2
 - PubSub Actors
 - Exams July 2017 05th and 20th
     -  Higer order functions 2: foldL,foldR, filter
