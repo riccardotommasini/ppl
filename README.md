@@ -14,5 +14,12 @@ Slack channels is available [here](https://ppl-course.slack.com) to discuss abou
 
 ## 05/10/2017 Scheme 1 
 - Basic Concepts: recursion, tail recursion, conditional structures, variable binding (define, let, let*), named let
-
+- 
+## 23/10/2017 Scheme 2
+- Higher Order Functions: map and fold 
+- Structs: trees 
+- Macros: 
+    + (++)
+    + motivating example: thunking
+- Continuation: code comparison break vs continue
 

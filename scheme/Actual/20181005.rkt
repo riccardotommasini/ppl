@@ -38,7 +38,6 @@
   (help ls '()))
 
 
-
 (define (cp l1 l2)
   (define (help l1 l2 acc)
     (cond [(null? (cdr l1))

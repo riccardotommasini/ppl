@@ -42,7 +42,6 @@
 
 ;; list flattens
 
-
 (define (flatten lol)
   (define (help lol acc)
     (if (null? lol)
