@@ -38,6 +38,18 @@
   (help ls '()))
 
 
+(define (di-simpler l)
+  (define (help l accum)
+    (if (null? l)
+        accum
+        (let ((x (car l))
+              (xs (cdr l)))
+              (if (list? x)
+                  (help xs (append accum (help x '())))
+                  (help xs (append accum (list x)))))))
+  (help l '()))
+
+
 (define (cp l1 l2)
   (define (help l1 l2 acc)
     (cond [(null? (cdr l1))
