@@ -6,15 +6,14 @@ This repository contains the material related to the practical classes of the co
 
 Slack channels is available [here](https://ppl-course.slack.com) to discuss about course issues and PPL related topis. Use @polimi.it or @mail.polimi.it email to access it.
 
-
 ## Old Courses Material (Git Tags)
 
 -  [2016](https://github.com/riccardotommasini/plp/releases/tag/2016) 
 -  [2017](https://github.com/riccardotommasini/plp/releases/tag/2017) 
 
 ## 05/10/2017 Scheme 1 
-- Basic Concepts: recursion, tail recursion, conditional structures, variable binding (define, let, let*), named let
-- 
+- Basic Concepts: recursion, tail recursion, conditional structures, variable binding (define, let), named let
+
 ## 23/10/2017 Scheme 2
 - Higher Order Functions: map and fold 
 - Structs: trees 
@@ -23,3 +22,9 @@ Slack channels is available [here](https://ppl-course.slack.com) to discuss abou
     + motivating example: thunking
 - Continuation: code comparison break vs continue
 
+## 26/10/2017 Scheme 3
+- Macros + Continuations:
+    + for in
+    + break and continue
+    + try-catch
+    + coroutines
