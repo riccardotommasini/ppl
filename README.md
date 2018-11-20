@@ -11,10 +11,10 @@ Slack channels is available [here](https://ppl-course.slack.com) to discuss abou
 -  [2016](https://github.com/riccardotommasini/plp/releases/tag/2016) 
 -  [2017](https://github.com/riccardotommasini/plp/releases/tag/2017) 
 
-## 05/10/2017 Scheme 1 
+## 05/10/2018 Scheme 1 
 - Basic Concepts: recursion, tail recursion, conditional structures, variable binding (define, let), named let
 
-## 23/10/2017 Scheme 2
+## 23/10/2018 Scheme 2
 - Higher Order Functions: map and fold 
 - Structs: trees 
 - Macros: 
@@ -22,9 +22,21 @@ Slack channels is available [here](https://ppl-course.slack.com) to discuss abou
     + motivating example: thunking
 - Continuation: code comparison break vs continue
 
-## 26/10/2017 Scheme 3
+## 26/10/2018 Scheme 3
 - Macros + Continuations:
     + for in
     + break and continue
     + try-catch
     + coroutines
+
+## 09/11/2018 Haskell 1
+- data vs newtype
+- higher-order functions
+- pattern matching
+- strict vs lazy
+
+## 20/11/2018 Haskell 2
+- trees
+- functor
+- foldable
+- type class 
