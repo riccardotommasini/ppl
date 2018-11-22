@@ -71,6 +71,17 @@ module Bintree where
 -- Function maxsubtree that takes a condition and a tree and returns the list of maximum subtrees that 
 -- satisfy the condition
 
+    maxsubtree:: (a -> Bool) -> [Tree a] -> Tree a -> [Tree a]
+    maxsubtree cond b Nil = b
+    maxsubtree cond b (Leaf a) = if (testcond cond (Leaf a))
+                                 then (Leaf a):b
+                                 else b
+    maxsubtree cond b (Branch l r) = if testcond cond (Branch l r) 
+                                     then (Branch l r):b
+                                     else maxsubtree cond (maxsubtree cond b r) l  
 
-
+    testcond:: (a->Bool)->Tree a-> Bool
+    testcond cond Nil = True
+    testcond cond (Leaf a) = cond a
+    testcond cond (Branch l r) = (testcond cond l) && (testcond cond r)
 
