@@ -51,11 +51,11 @@ module ESE20181204 where
 -- you can see by the signature) to every element of the list
 -- passed as its second argument (i.e. like a map).
 
-   mapListM :: (t -> State st a) -> [t] -> State st [a]
-   mapListM f [] = do return []
-   mapListM f (x:xs) = do x1 <- f x
-                          xs1 <- mapListM f xs
-                          return (x1:xs1)
+    mapListM :: (t -> State st a) -> [t] -> State st [a]
+    mapListM f [] = do return []
+    mapListM f (x:xs) = do x1 <- f x
+                           xs1 <- mapListM f xs
+                           return (x1:xs1)
 
 
 -- Define the monadic function 
@@ -68,8 +68,8 @@ module ESE20181204 where
 -- was reached. The state is incremented by x, 
 -- when x is reached.
 
-   numberList :: [st] -> State st [(st, st)]
-   numberList l = mapListM helper l where
+    numberList :: (Num st) => [st] -> State st [(st, st)]
+    numberList l = mapListM helper l where
         helper x = do st <- get
                       put (x + st)
                       return (x, x+st)
@@ -78,12 +78,12 @@ module ESE20181204 where
     data Tree a = Leaf a | Branch ( Tree a ) ( Tree a )
 
     instance Show a => Show (Tree a) where
-    show (Leaf a) = show a
-    show (Branch x y) = "<" ++ show x ++ " | " ++ show y ++ ">"
+        show (Leaf a) = show a
+        show (Branch x y) = "<" ++ show x ++ " | " ++ show y ++ ">"
 
     -- homework
 
-    mapTreeM :: (t -> State st a) -> Tree t -> State st (Tree t)
+    -- mapTreeM :: (t -> State st a) -> Tree t -> State st (Tree t)
 
 
 
