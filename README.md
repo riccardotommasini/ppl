@@ -40,3 +40,8 @@ Slack channels is available [here](https://ppl-course.slack.com) to discuss abou
 - functor
 - foldable
 - type class 
+ 
+## 23/11/2018 Haskell 3
+- tree2
+- tconcatmap
+- applicative 
