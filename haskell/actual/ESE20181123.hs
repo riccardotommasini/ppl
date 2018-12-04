@@ -76,11 +76,6 @@ module ESW20181123 where
         where (t1,_) = helper t (reverse (fringe t))
 
 
-
-
-
-
-
     t2concat :: Tree a -> Tree a -> Tree a
     t2concat t Nil = t
     t2concat Nil t = t

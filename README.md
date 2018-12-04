@@ -45,3 +45,7 @@ Slack channels is available [here](https://ppl-course.slack.com) to discuss abou
 - tree2
 - tconcatmap
 - applicative 
+
+## 04/12/2018 Haskell 4
+- state monad
+- exercises on it
