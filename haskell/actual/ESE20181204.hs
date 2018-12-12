@@ -51,11 +51,21 @@ module ESE20181204 where
 -- you can see by the signature) to every element of the list
 -- passed as its second argument (i.e. like a map).
 
-   mapListM :: (t -> State st a) -> [t] -> State st [a]
-   mapListM f [] = do return []
-   mapListM f (x:xs) = do x1 <- f x
-                          xs1 <- mapListM f xs
-                          return (x1:xs1)
+    mapListM :: (t -> State st a) -> [t] -> State st [a]
+    mapListM f [] = do return []
+    mapListM f (x:xs) = do x1 <- f x
+                           xs1 <- mapListM f xs
+                           return (x1:xs1)
+
+-- mapListM done with lambdas instead of do notation
+    mapListM2 :: (t -> State st a) -> [t] -> State st [a]
+    mapListM2 f [] = State(\s -> ([], s))
+    mapListM2 f (x:xs) = State runState where
+            runState s = ((a:as), s'') where
+                (State rs1) = f x
+                (State rs2) = (mapListM2 f xs)
+                (a, s') = rs1 s
+                (as, s'') = rs2 s'
 
 
 -- Define the monadic function 
@@ -68,22 +78,41 @@ module ESE20181204 where
 -- was reached. The state is incremented by x, 
 -- when x is reached.
 
-   numberList :: [st] -> State st [(st, st)]
-   numberList l = mapListM helper l where
+    numberList :: (Num st) => [st] -> State st [(st, st)]
+    numberList l = mapListM helper l where
         helper x = do st <- get
                       put (x + st)
                       return (x, x+st)
+
+-- numberList done with lambdas instead of do notation
+    numberList2 :: (Num st) => [st] -> State st [(st, st)]
+    numberList2 l = mapListM helper l where
+        helper x = State(\s -> ((x, s+x), s+x))
+
+-- numberList done using the lambda version of the mapListM function (for testing purposes)
+    numberList3 :: (Num st) => [st] -> State st [(st, st)]
+    numberList3 l = mapListM2 helper l where
+        helper x = State(\s -> ((x, s+x), s+x))
+
+-- Additional helper function useful for debugging and printing
+    doComputations :: (State st a) -> st -> (a, st)
+    doComputations (State runState) initialState = runState initialState
         
+-- TEST: 
+--        doComputations (numberList [1,2,3,4,5]) 0
+--        doComputations (numberList2 [1,2,3,4,5]) 0
+--        doComputations (numberList3 [1,2,3,4,5]) 0
+--          should all yield as a result    ([(1,1),(2,3),(3,6),(4,10),(5,15)],15)
 
     data Tree a = Leaf a | Branch ( Tree a ) ( Tree a )
 
     instance Show a => Show (Tree a) where
-    show (Leaf a) = show a
-    show (Branch x y) = "<" ++ show x ++ " | " ++ show y ++ ">"
+        show (Leaf a) = show a
+        show (Branch x y) = "<" ++ show x ++ " | " ++ show y ++ ">"
 
     -- homework
 
-    mapTreeM :: (t -> State st a) -> Tree t -> State st (Tree t)
+    -- mapTreeM :: (t -> State st a) -> Tree t -> State st (Tree t)
 
 
 
