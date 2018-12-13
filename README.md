@@ -4,7 +4,7 @@ This repository contains the material related to the practical classes of the co
 
 ##
 
-Slack channels is available [here](https://ppl-course.slack.com) to discuss about course issues and PPL related topis. Use @polimi.it or @mail.polimi.it email to access it.
+Slack channels is available [here](https://deib.slack.com) to discuss about course issues and PPL related topis. Use @polimi.it or @mail.polimi.it email to access it.
 
 ## Old Courses Material (Git Tags)
 
