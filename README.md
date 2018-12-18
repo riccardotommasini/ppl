@@ -49,3 +49,9 @@ Slack channels is available [here](https://deib.slack.com) to discuss about cour
 ## 04/12/2018 Haskell 4
 - state monad
 - exercises on it
+
+## 18/12/2018 Erlang 1
+- hello world
+- pub sub example
+
+## 21/12/2018 Erlang 2
