@@ -93,7 +93,7 @@ module Bintree where
     --- Applicative
 
 
-    --- see concact [[1],[2],[3]]
+    --- see concat [[1],[2],[3]]
     --- lists are functors
     --- lists are applicative
     --- :t (<*>)

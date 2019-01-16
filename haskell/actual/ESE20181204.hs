@@ -74,6 +74,7 @@ module ESE20181204 where
                       put (st+x)
                       return (x, st+x)
 
+
     data Tree a = Leaf a | Branch ( Tree a ) ( Tree a )
 
     instance Show a => Show (Tree a) where
